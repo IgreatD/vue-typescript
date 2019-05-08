@@ -1,0 +1,20 @@
+**/node_modules
+
+yarn-error.log
+
+npm-debug.log*
+
+.DS_Store
+
+yarn.lock
+package-lock.json
+
+# visual studio code
+.history
+*.log
+
+# production
+/.vscode
+
+# screenshot
+screenshot
