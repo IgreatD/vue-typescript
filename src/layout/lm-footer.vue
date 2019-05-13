@@ -26,7 +26,7 @@ import TabbarConfig, { ITabbarTypes } from './tabbar';
     [TabbarItem.name]: TabbarItem,
   },
 })
-export default class LmLayout extends Vue {
+export default class LmFooter extends Vue {
   @Provide() private active = 0;
   @Provide() private tabbarConfig = TabbarConfig;
 

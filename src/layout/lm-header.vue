@@ -27,7 +27,7 @@ import IMetaTypes from '@/router/meta-types';
     [Icon.name]: Icon,
   },
 })
-export default class LmLayout extends Vue {
+export default class LmHeader extends Vue {
   @Prop() private meta!: IMetaTypes;
 
   private onClickLeft() {

@@ -1,0 +1,30 @@
+._text(@color,@size) {
+  color: @color;
+  font-size: @size;
+}
+._text-primary(@color:@text-priamry-color,@size:@text-priamry-size) {
+  ._text(@color, @size);
+}
+._text-secondary(@color:@text-secondary-color,@size:@text-secondary-size) {
+  ._text(@color, @size);
+}
+._text-normal(@color:@text-normal-color,@size:@text-normal-size) {
+  ._text(@color, @size);
+}
+._text-hint(@color:@text-hint-color,@size:@text-hint-size) {
+  ._text(@color, @size);
+}
+
+.text-primary {
+  ._text(@text-priamry-color, @text-priamry-size);
+  font-weight: 500;
+}
+.text-secondary {
+  ._text(@text-secondary-color, @text-secondary-size);
+}
+.text-normal {
+  ._text(@text-normal-color, @text-normal-size);
+}
+.text-hint {
+  ._text(@text-hint-color, @text-hint-size);
+}

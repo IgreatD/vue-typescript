@@ -1,0 +1,17 @@
+._flex(@justify-content: space-between) {
+  display: flex;
+  overflow: hidden;
+  justify-content: @justify-content;
+  user-select: none;
+}
+
+.index-line(@justify-content: space-between,@direction: row) {
+  ._flex(@justify-content);
+  flex-direction: @direction;
+}
+
+.index-main(@justify-content: space-between, @direction: column) {
+  ._flex(@justify-content);
+  flex-grow: 1;
+  flex-direction: @direction;
+}

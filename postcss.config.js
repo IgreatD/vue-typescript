@@ -1,5 +1,22 @@
 module.exports = {
   plugins: {
-    autoprefixer: {}
-  }
-}
+    autoprefixer: {},
+    'postcss-aspect-ratio-mini': {},
+    'postcss-px-to-viewport': {
+      viewportWidth: 750,
+      unitPrecision: 3,
+      viewportUnit: 'vw',
+      selectorBlackList: [
+        '.ignore',
+        '.hairlines',
+        'van',
+        'vjs',
+        'multiselect',
+        'vue-content-placeholders',
+      ],
+      minPixelValue: 1,
+      mediaQuery: false,
+      exclude: /(\/|\\)(node_modules)(\/|\\)/,
+    },
+  },
+};

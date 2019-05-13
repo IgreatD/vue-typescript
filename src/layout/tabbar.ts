@@ -10,7 +10,7 @@ const tabbarConfig: ITabbarTypes[] = [
     index: 0,
     icon: 'lm-ketang',
     name: '课堂',
-    alias: 'Classroom',
+    alias: 'Clzroom',
   },
   {
     index: 1,

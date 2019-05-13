@@ -4,6 +4,7 @@ const tsImportPluginFactory = require('ts-import-plugin');
 const { cdn, vant } = require('./config/index.ts');
 module.exports = {
   productionSourceMap: false,
+
   chainWebpack: (config) => {
     config.externals({});
     config.plugin('html').tap((args) => {
@@ -46,7 +47,7 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',
-      patterns: [path.resolve(__dirname, './src/styles/var.less')],
+      patterns: [path.resolve(__dirname, './src/styles/pre/*.less')],
     },
   },
 
