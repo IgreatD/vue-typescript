@@ -1,19 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Layout from '@/layout/layout.vue';
-import ImetaTypes from './meta-types';
+import metaConfig from './meta-config';
 Vue.use(Router);
 
-export interface IMetaConfigTypes {
-  [routerName: string]: ImetaTypes;
-}
-
-const metaConfig: IMetaConfigTypes = {
-  clzroom: { showLeft: false, showBottom: true, right: { name: '分享' }, title: '课堂' },
-  mine: { showLeft: false, showBottom: true, right: { icon: 'lm-shezhi' }, title: '我的' },
-};
-
-export default new Router({
+const router = new Router({
   mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
@@ -26,22 +17,29 @@ export default new Router({
         {
           path: '/clzroom',
           name: 'Clzroom',
-          component: () => import('@/views/clzroom/index.ts'),
+          component: () => import('@/views/clzroom/index.ts').then((m) => m.default),
           meta: metaConfig.clzroom,
         },
         {
           path: '/mine',
           name: 'Mine',
-          component: () => import('@/views/mine/index.ts'),
+          component: () => import('@/views/mine/index.ts').then((m) => m.default),
           meta: metaConfig.mine,
         },
         {
-          path: '/flex',
-          name: 'flex',
-          component: () => import('@/components/header-content/index.vue'),
-          meta: metaConfig.mine,
+          path: '/settings',
+          name: 'Settings',
+          component: () => import('@/views/mine/settings/index.vue').then((m) => m.default),
+          meta: metaConfig.settings,
+        },
+        {
+          path: '/login',
+          name: 'Login',
+          component: () => import('@/views/mine/login/index.ts').then((m) => m.default),
         },
       ],
     },
   ],
 });
+
+export default router;

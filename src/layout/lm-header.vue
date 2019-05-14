@@ -1,12 +1,14 @@
 <template>
   <header>
     <van-nav-bar
+      fixed
       :title="title"
       :left-arrow="showLeft"
       :left-text="showLeft? '返回' : ''"
       :right-text="right && right.name"
       @click-left="onClickLeft"
       @click-right="onClickRight"
+      :z-index="10"
     >
       <van-icon
         slot="right"
@@ -17,10 +19,10 @@
   </header>
 </template>
 
-<script lang='ts'>
-import { Vue, Component, Prop } from 'vue-property-decorator';
+<script lang="ts">
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 import { NavBar, Icon } from 'vant';
-import IMetaTypes from '@/router/meta-types';
+import IMetaTypes from '@/types/meta-types';
 @Component({
   components: {
     [NavBar.name]: NavBar,
@@ -31,11 +33,13 @@ export default class LmHeader extends Vue {
   @Prop() private meta!: IMetaTypes;
 
   private onClickLeft() {
-    console.log('click left');
+    this.$router.back();
   }
 
   private onClickRight() {
-    console.log('click right');
+    this.$router.push({
+      name: this.action,
+    });
   }
 
   get title() {
@@ -48,6 +52,12 @@ export default class LmHeader extends Vue {
 
   get showLeft() {
     return this.meta.showLeft;
+  }
+
+  get action() {
+    if (typeof this.right !== 'undefined') {
+      return this.right.action;
+    }
   }
 }
 </script>

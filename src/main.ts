@@ -3,11 +3,13 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import importDirective from '@/directive/index';
-import VueLazyLoad from 'vue-lazyload';
 // 注册指令
 importDirective();
-import '@/styles/base.less';
+import VueLazyLoad from 'vue-lazyload';
 Vue.use(VueLazyLoad);
+import '@/plugins/vant';
+import '@/styles/base.less';
+import '@/router/permission';
 Vue.config.productionTip = false;
 new Vue({
   router,

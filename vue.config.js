@@ -3,8 +3,7 @@ const merge = require('webpack-merge');
 const tsImportPluginFactory = require('ts-import-plugin');
 const { cdn, vant } = require('./config/index.ts');
 module.exports = {
-  productionSourceMap: false,
-
+  parallel: false,
   chainWebpack: (config) => {
     config.externals({});
     config.plugin('html').tap((args) => {
@@ -52,6 +51,7 @@ module.exports = {
   },
 
   devServer: {
+    disableHostCheck: true,
     proxy: {
       '/api/ft/': {
         target: 'http://kysj.chinanorth.cloudapp.chinacloudapi.cn:7001/',

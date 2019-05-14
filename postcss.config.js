@@ -11,6 +11,7 @@ module.exports = {
         '.hairlines',
         'van',
         'vjs',
+        'pop',
         'multiselect',
         'vue-content-placeholders',
       ],

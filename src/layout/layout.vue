@@ -1,20 +1,29 @@
 <template>
   <div>
-    <lm-header :meta="meta" />
+    <lm-header
+      :meta="meta"
+      v-if="showHeader"
+    />
     <main
       :style="styleMainObject"
       class="app-main"
     >
-      <router-view></router-view>
+      <transition :name="transitionName">
+        <keep-alive :include="['Classroom']">
+          <router-view />
+        </keep-alive>
+      </transition>
     </main>
-    <lm-footer />
+    <lm-footer v-show="showBottom" />
   </div>
 </template>
 
 <script lang='ts'>
 import LmFooter from './lm-footer.vue';
 import LmHeader from './lm-header.vue';
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Watch, Provide } from 'vue-property-decorator';
+import { RouteConfig } from 'vue-router';
+import user from '@/store/modules/user';
 @Component({
   components: {
     LmFooter,
@@ -22,8 +31,31 @@ import { Vue, Component } from 'vue-property-decorator';
   },
 })
 export default class LmLayout extends Vue {
+  private transitionName: string = 'van-slide-right';
+  @Watch('$route', { immediate: true })
+  private onRouteChange(val: RouteConfig) {
+    const router = this.$router as any;
+    const isBack = router.isBack;
+    if (isBack) {
+      this.transitionName = 'van-slide-left';
+    } else {
+      this.transitionName = 'van-slide-right';
+    }
+    router.isBack = false;
+  }
+
+  @Provide()
+  get userInfo() {
+    console.log('userinfo');
+    return user.userInfo;
+  }
+
   get meta() {
     return this.$route.meta;
+  }
+
+  get showHeader() {
+    return this.meta.showHeader;
   }
 
   get showBottom() {
@@ -33,6 +65,7 @@ export default class LmLayout extends Vue {
   get styleMainObject() {
     return {
       paddingBottom: this.showBottom ? '50px' : '0',
+      paddingTop: this.showHeader ? '46px' : '0',
     };
   }
 }

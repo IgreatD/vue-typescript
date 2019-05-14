@@ -1,10 +1,10 @@
 <template>
-  <footer v-show="showBottom">
+  <footer>
     <van-tabbar v-model="active">
-      <template v-for="(tabbar, index) in tabbarConfig">
+      <template v-for="(tabbar) in tabbarConfig">
         <van-tabbar-item
           @click="toName(tabbar.alias)"
-          :key="index"
+          :key="tabbar.index"
           :icon="tabbar.icon"
         >
           {{tabbar.name}}
@@ -31,7 +31,7 @@ export default class LmFooter extends Vue {
   @Provide() private tabbarConfig = TabbarConfig;
 
   @Watch('$route', { immediate: true })
-  public onRouteChange(val: RouteConfig) {
+  private onRouteChange(val: RouteConfig) {
     this.changeActive(val.name!);
   }
 
@@ -44,14 +44,6 @@ export default class LmFooter extends Vue {
 
   private toName(name: string) {
     this.$router.replace({ name });
-  }
-
-  get meta() {
-    return this.$route.meta;
-  }
-
-  get showBottom() {
-    return this.meta.showBottom;
   }
 }
 </script>
