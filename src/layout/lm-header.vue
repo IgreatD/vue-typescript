@@ -9,6 +9,7 @@
       @click-left="onClickLeft"
       @click-right="onClickRight"
       :z-index="10"
+      :border="false"
     >
       <van-icon
         slot="right"
@@ -23,6 +24,7 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 import { NavBar, Icon } from 'vant';
 import IMetaTypes from '@/types/meta-types';
+import app from '@/store/modules/app';
 @Component({
   components: {
     [NavBar.name]: NavBar,
@@ -37,9 +39,7 @@ export default class LmHeader extends Vue {
   }
 
   private onClickRight() {
-    this.$router.push({
-      name: this.action,
-    });
+    app.setAction(this.action);
   }
 
   get title() {

@@ -1,8 +1,8 @@
 <template>
   <div class="mine-hd">
-    <lm-flex :align="userInfo.Name? '' : 'center'">
+    <lm-flex :align="userInfo? '' : 'center'">
       <header-left :user-info="userInfo" />
-      <template v-if="userInfo.Name">
+      <template v-if="userInfo">
         <header-right :user-info="userInfo" />
       </template>
       <template v-else>

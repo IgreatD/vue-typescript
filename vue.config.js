@@ -51,7 +51,6 @@ module.exports = {
   },
 
   devServer: {
-    disableHostCheck: true,
     proxy: {
       '/api/ft/': {
         target: 'http://kysj.chinanorth.cloudapp.chinacloudapi.cn:7001/',

@@ -17,25 +17,50 @@ const router = new Router({
         {
           path: '/clzroom',
           name: 'Clzroom',
-          component: () => import('@/views/clzroom/index.ts').then((m) => m.default),
+          component: () => import('@/views/clzroom/index.ts'),
           meta: metaConfig.clzroom,
         },
         {
           path: '/mine',
           name: 'Mine',
-          component: () => import('@/views/mine/index.ts').then((m) => m.default),
+          component: () => import('@/views/mine/index.ts'),
           meta: metaConfig.mine,
         },
         {
           path: '/settings',
           name: 'Settings',
-          component: () => import('@/views/mine/settings/index.vue').then((m) => m.default),
+          component: () => import('@/views/mine/settings/index.vue'),
           meta: metaConfig.settings,
+        },
+        {
+          path: '/settings/detail',
+          name: 'UserUpdate',
+          component: () => import('@/views/mine/settings/detail/index.vue'),
+          meta: metaConfig.settingsDetail,
+          beforeEnter: (to, from, next) => {
+            const title = to.query.title;
+            if (title) {
+              to.meta.title = title;
+            }
+            next();
+          },
+        },
+        {
+          path: '/myReferer',
+          name: 'MyReferer',
+          component: () => import('@/views/mine/mine-referer/index.vue'),
+          meta: metaConfig.myReferer,
+        },
+        {
+          path: '/myReferer/detail',
+          name: 'MyRefererDetail',
+          component: () => import('@/views/mine/mine-referer/detail/index.vue'),
+          meta: metaConfig.myReferer,
         },
         {
           path: '/login',
           name: 'Login',
-          component: () => import('@/views/mine/login/index.ts').then((m) => m.default),
+          component: () => import('@/views/mine/login/index.ts'),
         },
       ],
     },

@@ -5,7 +5,7 @@
     :style="{width:size,height:size}"
   >
     <img
-      :src="avatar"
+      :src="avatar || defaultAvatar"
       aspectratio-content
     >
   </div>
@@ -20,6 +20,8 @@ export default class Avatar extends Vue {
     default: 'https://keyushijian-1257034971.cos.ap-shanghai.myqcloud.com/ft/image/logo.jpg',
   })
   private avatar?: string;
+  private defaultAvatar =
+    'https://keyushijian-1257034971.cos.ap-shanghai.myqcloud.com/ft/image/logo.jpg';
 }
 </script>
 
@@ -27,6 +29,7 @@ export default class Avatar extends Vue {
 .avatar-content {
   & > img {
     border-radius: 50%;
+    object-fit: cover;
   }
 }
 </style>

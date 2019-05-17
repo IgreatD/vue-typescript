@@ -3,8 +3,8 @@
     <van-cell
       title="我的推广"
       is-link
-      :to="{name:'Referer'}"
-      :value="userInfo.MyRefererClassCount"
+      :to="{name:'MyReferer'}"
+      :value="userInfo && userInfo.MyRefererClassCount || ''"
     />
     <van-cell
       title="我的课程"

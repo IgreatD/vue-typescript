@@ -3,7 +3,7 @@
     <template v-for="(clz, index) in clzes">
       <div
         :key="index"
-        class="clz-box van-hairline--bottom"
+        class="clz-box"
       >
         <lm-flex>
           <clzroom-left :clz="clz" />
@@ -52,6 +52,8 @@ export default class LmClzroom extends Vue {
 .clz {
   &-box {
     padding: 30px;
+    background: @white;
+    margin-bottom: 10px;
   }
 }
 </style>

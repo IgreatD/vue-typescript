@@ -39,6 +39,13 @@ export interface ILoginTypes {
    * @memberof ILoginTypes
    */
   OpenId?: string;
+
+  /**
+   * @description 用户身份识别 1. 学生 6. 推广员
+   * @type {number}
+   * @memberof ILoginTypes
+   */
+  MemberTypeID?: number;
 }
 
 /**
@@ -66,5 +73,42 @@ export interface IClzroomTypes {
    * @type {number}
    * @memberof IClzroomTypes
    */
+  PageSize: number;
+}
+
+/**
+ * @description 我的推广
+ * @export
+ * @interface IMyRefererTypes
+ */
+export interface IMyRefererTypes {
+  /**
+   * @description
+   * @type {number}
+   * @memberof IMyRefererTypes
+   */
+  PageIndex: number;
+
+  /**
+   * @description
+   * @type {number}
+   * @memberof IMyRefererTypes
+   */
+  PageSize: number;
+}
+
+/**
+ * @description 我的招生、我的推广
+ * @export
+ * @interface IMyRefererRecuritTypes
+ */
+export interface IMyRefererRecuritTypes {
+  /**
+   * @description 课堂推广码
+   * @type {string}
+   * @memberof IMyRefererRecuritTypes
+   */
+  MyRefererCode: string;
+  PageIndex: number;
   PageSize: number;
 }

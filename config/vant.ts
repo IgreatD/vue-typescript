@@ -2,7 +2,7 @@
  * @Author: IgreatD
  * @Date: 2019-05-07 16:40:59
  * @Last Modified by: IgreatD
- * @Last Modified time: 2019-05-07 17:36:46
+ * @Last Modified time: 2019-05-16 15:59:22
  *
  * vant 变量配置
  */
@@ -11,7 +11,7 @@
  */
 const colorVar = {
   white: '#ffffff',
-  red: '#03a9f4',
+  red: '#f44',
   blue: '#3eaf7c',
   orange: '#f08d49',
   green: '#3eaf7c',
@@ -30,6 +30,7 @@ const navBar = {
 };
 
 module.exports = {
+  'border-color': '#c7c7c7',
   ...colorVar,
   ...navBar,
 };

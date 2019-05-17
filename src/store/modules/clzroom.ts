@@ -13,13 +13,9 @@ class Clzroom extends VuexModule {
   @Action
   public getClzList(payload: IClzroomTypes): Promise<ClzroomModel> {
     return new Promise((resolve, reject) => {
-      getClzList(payload)
-        .then((data) => {
-          resolve(data.data);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+      getClzList(payload).then((data) => {
+        resolve(data.data);
+      });
     });
   }
 }

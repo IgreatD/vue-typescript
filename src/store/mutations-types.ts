@@ -1,4 +1,4 @@
-export const SET_TOKEN = 'set_token';
+export const SET_AUTH = 'set_auth';
 
 export const SHOW_BOTTOM = 'show_bottom';
 

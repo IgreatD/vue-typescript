@@ -2,7 +2,7 @@
  * @Author: IgreatD
  * @Date: 2019-05-09 16:44:48
  * @Last Modified by: IgreatD
- * @Last Modified time: 2019-05-14 14:32:58
+ * @Last Modified time: 2019-05-16 14:42:46
  */
 
 /**
@@ -96,7 +96,7 @@ export interface ClzroomDataModel {
  * @extends {ICommonModel}
  */
 export interface UserModel extends ICommonModel {
-  Data: UserDataModel;
+  Data?: UserDataModel;
   Token: string;
 }
 
@@ -117,6 +117,13 @@ export interface UserDataModel {
    * @type {string}
    */
   Balance: string;
+
+  /**
+   * @description 头像
+   * @type {string}
+   * @memberof UserDataModel
+   */
+  HeadImage: string;
 
   /**
    * @description 我的邀请码
@@ -150,5 +157,116 @@ export interface UserDataModel {
    * @type {string}
    * @memberof UserDataModel
    */
-  isOrganizationAccount: number;
+  isOrganizationAccount: string;
+
+  [prop: string]: string;
+}
+
+/**
+ * @description 我的推广
+ * @export
+ * @interface MyRefererModel
+ * @extends {ICommonModel}
+ */
+export interface MyRefererModel extends ICommonModel {
+  Data: MyRefererDataModel[];
+}
+
+/**
+ * @description 我的推广Data
+ * @export
+ * @interface MyRefererDataModel
+ */
+export interface MyRefererDataModel {
+  /**
+   * @description 课堂名称
+   * @type {string}
+   */
+  ClassName: string;
+
+  /**
+   * @description 年级学段
+   * @type {string}
+   */
+  Stage: string;
+
+  /**
+   * @description 科目名称
+   * @type {string}
+   */
+  CourseInfoName: string;
+
+  /**
+   * @description 招生人数
+   * @type {number}
+   */
+  RecruitStudentsCount: number;
+  /**
+   * @description 推广人数
+   * @type {number}
+   */
+  SpreadCount: number;
+  /**
+   * @description 推广招生
+   * @type {number}
+   */
+  SpreadStudentCount: number;
+
+  /**
+   * @description 开课时间
+   * @type {string}
+   */
+  BeginDate: string;
+
+  /**
+   * @description 课程关联推广员的推广码
+   * @type {string}
+   * @memberof MyRefererDataModel
+   */
+  MyRefererCode: string;
+}
+
+/**
+ * @description 我的招生、我的推广
+ * @export
+ * @interface MyRefererRecruitModel
+ * @extends {ICommonModel}
+ */
+export interface MyRefererRecruitModel extends ICommonModel {
+  Data: MyRefererRecruitDataModel[];
+}
+
+/**
+ * @description 我的招生、我的推广 Data
+ * @export
+ * @interface MyRefererRecruitDataModel
+ */
+export interface MyRefererRecruitDataModel {
+  /**
+   * @description 招生学生名称
+   * @type {string}
+   * @memberof MyRefererRecruitDataModel
+   */
+  StudentName?: string;
+
+  /**
+   * @description 报名支付时间
+   * @type {string}
+   * @memberof MyRefererRecruitDataModel
+   */
+  JoinPassDate?: string;
+
+  /**
+   * @description 推广员名称
+   * @type {string}
+   * @memberof MyRefererRecruitDataModel
+   */
+  RefererName?: string;
+
+  /**
+   * @description 推广的学生个数
+   * @type {string}
+   * @memberof MyRefererRecruitDataModel
+   */
+  SpreadStudentCount?: string;
 }

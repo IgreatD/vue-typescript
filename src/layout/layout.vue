@@ -21,7 +21,7 @@
 <script lang='ts'>
 import LmFooter from './lm-footer.vue';
 import LmHeader from './lm-header.vue';
-import { Vue, Component, Watch, Provide } from 'vue-property-decorator';
+import { Vue, Component, Watch, Provide, Emit } from 'vue-property-decorator';
 import { RouteConfig } from 'vue-router';
 import user from '@/store/modules/user';
 @Component({
@@ -46,7 +46,6 @@ export default class LmLayout extends Vue {
 
   @Provide()
   get userInfo() {
-    console.log('userinfo');
     return user.userInfo;
   }
 
