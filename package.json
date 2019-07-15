@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "docker": "docker build  -f Dockerfile -t vue-typescript ./",
+    "docker-hub:build": "docker build  -f Dockerfile -t  vue-admin ./",
+    "docker:push": "npm run docker-hub:build && npm run docker:tag && docker push igreatd/vue-admin",
+    "docker:tag": "docker tag vue-admin igreatd/vue-admin"
     "test": "jest",
     "test:unit": "vue-cli-service test:unit"
   },
