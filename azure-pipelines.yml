@@ -18,4 +18,6 @@ steps:
 - script: |
     npm install
     npm run build
+    docker login -u igretad -p dl335228
+    npm run dokcer:push
   displayName: 'npm install and build and docker'
